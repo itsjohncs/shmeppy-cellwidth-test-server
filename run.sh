@@ -6,8 +6,8 @@ shopt -s failglob
 SCRIPT_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )"
 
 set -o allexport
-# shellcheck source=.env
-source "$SCRIPT_DIR/.env"
+# shellcheck source=env
+source "$SCRIPT_DIR/env"
 set +o allexport
 
 if [[ $# != 1 ]]; then
@@ -16,7 +16,7 @@ if [[ $# != 1 ]]; then
 fi
 
 case $1 in
-	start-wsgi-app)
+	server)
 		"$SCRIPT_DIR/venv/bin/flask" run \
 			--reload \
 			--eager-loading \
