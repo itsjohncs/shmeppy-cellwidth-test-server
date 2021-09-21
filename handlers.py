@@ -1,6 +1,6 @@
 import flask
 
-from app import app
+from app import app, db
 from models import Image
 
 
@@ -37,7 +37,10 @@ def update_image_metadata(image_id):
         }, 400
 
     num_updated_rows = (
-        Image.filter_by_(id=image_id).update({Image.cell_width: cell_width}))
+        Image.query
+            .filter_by(id=image_id)
+            .update({Image.cell_width: cell_width}))
+    db.session.commit()
     if num_updated_rows == 0:
         return {
             "result": "error",
