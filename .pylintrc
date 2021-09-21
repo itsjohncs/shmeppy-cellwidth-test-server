@@ -1,0 +1,9 @@
+[MASTER]
+disable=C0114,C0115,C0116,W0622,C0103,R0903,R0201,R1720,R1705,R0401
+ignore=venv
+load-plugins=pylint_flask_sqlalchemy
+ignored-classes=scoped_session
+max-line-length=80
+
+[SIMILIARITIES]
+ignore-imports=yes

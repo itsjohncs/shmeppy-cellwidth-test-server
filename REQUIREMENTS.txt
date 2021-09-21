@@ -1,0 +1,4 @@
+flask
+flask-sqlalchemy
+pylint_flask_sqlalchemy
+pylint
