@@ -2,6 +2,7 @@ import flask
 
 from app import app, db
 from models import Image
+from plot import plot_data
 
 
 @app.route("/images")
@@ -53,3 +54,9 @@ def update_image_metadata(image_id):
 @app.route("/images/<image_id>", methods=["GET"])
 def get_image(image_id):
     return flask.send_from_directory(app.config["IMAGE_DIR"], image_id)
+
+
+@app.route("/plot", methods=["POST"])
+def launch_plot():
+    plot_data(flask.request.json)
+    return {"result": "success"}

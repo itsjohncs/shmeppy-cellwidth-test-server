@@ -37,6 +37,10 @@ case $1 in
 				--rcfile "$SCRIPT_DIR/.pylintrc"
 		;;
 
+	install-deps)
+		"$SCRIPT_DIR/venv/bin/pip3" install -r "$SCRIPT_DIR/REQUIREMENTS.txt"
+		;;
+
 	*)
 		echo "Unknown target $1" 1>&2
 esac
